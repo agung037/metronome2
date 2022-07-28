@@ -59,6 +59,7 @@ class Metronome extends React.Component {
       this.setState({
         playing: false,
         seconds: 0,
+        time: "00:00:00",
       })
       clearInterval(this.timer)
     } else {
@@ -101,8 +102,6 @@ class Metronome extends React.Component {
   }
 
   handleInputChange = (event) => {
-    console.log(event.target.value)
-
     this.setState({
       bpm: event.target.value,
     })
