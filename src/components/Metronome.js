@@ -38,10 +38,12 @@ class Metronome extends React.Component {
   }
 
   tick() {
-    this.setState((state) => ({
-      seconds: state.seconds + 1,
-      time: moment.utc(state.seconds * 1000).format("HH:mm:ss"),
-    }))
+    if (this.state.playing) {
+      this.setState((state) => ({
+        seconds: state.seconds + 1,
+        time: moment.utc(state.seconds * 1000).format("HH:mm:ss"),
+      }))
+    }
   }
 
   componentDidMount() {
@@ -50,16 +52,15 @@ class Metronome extends React.Component {
 
   handleButton = () => {
     // hapus jam setiap timer dimulai
-    this.setState({
-      seconds: 0,
-    })
+
     // jika status playing maka button berperan sebagai penghenti
     if (this.state.playing) {
       // hapus timer
-      clearInterval(this.timer)
       this.setState({
         playing: false,
+        seconds: 0,
       })
+      clearInterval(this.timer)
     } else {
       this.timer = setInterval(this.playClick, (60 / this.state.bpm) * 1000)
       this.setState(
