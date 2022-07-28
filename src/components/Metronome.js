@@ -2,6 +2,7 @@ import React from "react"
 import tic from "./click1.wav"
 import tac from "./click2.wav"
 import { FaPlay, FaStop } from "react-icons/fa"
+import moment from "moment"
 
 import {
   SimpleGrid,
@@ -30,11 +31,28 @@ class Metronome extends React.Component {
       bpm: 100,
       playing: false,
       count: 0,
+      seconds: 0,
+      time: "00:00:00",
       beatsPerMeasure: 4,
     }
   }
 
+  tick() {
+    this.setState((state) => ({
+      seconds: state.seconds + 1,
+      time: moment.utc(state.seconds * 1000).format("HH:mm:ss"),
+    }))
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(() => this.tick(), 1000)
+  }
+
   handleButton = () => {
+    // hapus jam setiap timer dimulai
+    this.setState({
+      seconds: 0,
+    })
     // jika status playing maka button berperan sebagai penghenti
     if (this.state.playing) {
       // hapus timer
@@ -154,7 +172,7 @@ class Metronome extends React.Component {
               colorScheme="teal"
               variant="solid"
             >
-              {this.state.playing ? "Stop" : "Start"}
+              {this.state.playing ? this.state.time : "Start"}
             </Button>
           </Center>
         </SimpleGrid>

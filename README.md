@@ -7,7 +7,7 @@
 
 
 ## Tentang Aplikasi ini
-ini adalah aplikasi sederhana yang dibuat untuk belajar penggunaan state pada react
+ini adalah aplikasi sederhana yang saya buat untuk belajar penggunaan state pada react
 
 
 ## Teknologi yang digunakan
