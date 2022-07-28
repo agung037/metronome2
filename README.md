@@ -5,8 +5,6 @@
 - Desktop View
 ![desktop view ](./dview.jpg)
 
-- Mobile View
-![mobile view ](./mview.jpg)
 
 ## Tentang Aplikasi ini
 ini adalah aplikasi sederhana yang dibuat untuk belajar penggunaan state pada react
