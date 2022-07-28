@@ -124,7 +124,7 @@ class Metronome extends React.Component {
           </Center>
           <Center my="2vh">
             <Box boxSize="200px">
-              <Image src="/metro2.jpg" alt="metronome img" />
+              <Image src="/metro3.jpg" alt="metronome img" />
             </Box>
           </Center>
           <Center mt="10vh">
